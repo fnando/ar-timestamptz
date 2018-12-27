@@ -1,6 +1,6 @@
 # AR::Timestamptz
 
-[![Travis-CI](https://travis-ci.org/fnando/ar-timestamptz.png)](https://travis-ci.org/fnando/ar-timestamptz)
+[![Travis-CI](https://travis-ci.org/fnando/ar-timestamptz.svg)](https://travis-ci.org/fnando/ar-timestamptz)
 [![Code Climate](https://codeclimate.com/github/fnando/ar-timestamptz/badges/gpa.svg)](https://codeclimate.com/github/fnando/ar-timestamptz)
 [![Test Coverage](https://codeclimate.com/github/fnando/ar-timestamptz/badges/coverage.svg)](https://codeclimate.com/github/fnando/ar-timestamptz/coverage)
 [![Gem](https://img.shields.io/gem/v/ar-timestamptz.svg)](https://rubygems.org/gems/ar-timestamptz)

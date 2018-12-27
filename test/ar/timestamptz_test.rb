@@ -5,15 +5,16 @@ class TimestamptzTest < Minitest::Test
 
   test "create datetime columns as timestamptz" do
     with_migration do
-      drop_table(:users) if table_exists?(:users)
+      drop_table(:users) if data_source_exists?(:users)
       create_table(:users) do |t|
         t.datetime :deleted_at, null: true
         t.timestamps null: false
       end
     end
 
-    columns = model.columns.select {|col| col.name != "id" }
+    columns = model.columns.reject {|col| col.name == "id" }
+    all_timestamptz = columns.all? {|col| col.sql_type == "timestamp with time zone" }
 
-    assert columns.all? {|col| col.sql_type == "timestamp with time zone" }
+    assert all_timestamptz
   end
 end
