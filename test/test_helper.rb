@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "simplecov"
 SimpleCov.start
 
@@ -10,5 +12,6 @@ ActiveRecord::Base.establish_connection "postgres:///test"
 ActiveRecord::Migration.verbose = false
 
 def with_migration(&block)
-  Class.new(ActiveRecord::Migration[5.0], &block).new
+  ar_version = Float("#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}")
+  Class.new(ActiveRecord::Migration[ar_version], &block).new
 end

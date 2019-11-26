@@ -1,22 +1,26 @@
+---
 language: ruby
 sudo: false
 cache: bundler
+services:
+  - postgresql
 before_install:
-- gem install bundler
+  - gem install bundler
 gemfile:
-- Gemfile
-- gemfiles/rails_5_0.gemfile
-- gemfiles/rails_5_1.gemfile
-- gemfiles/rails_5_2.gemfile
+  - gemfiles/rails_6_0.gemfile
+  - gemfiles/rails_5_2.gemfile
+  - gemfiles/rails_5_1.gemfile
+  - gemfiles/rails_5_0.gemfile
 before_script:
-- createdb test
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - createdb test
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
 after_script:
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 rvm:
-- 2.5.2
+  - 2.6.5
+  - 2.5.7
 notifications:
   email: false
 env:
