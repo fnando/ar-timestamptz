@@ -15,7 +15,8 @@ class TimestamptzTest < Minitest::Test
     end
 
     columns = model.columns.reject {|col| col.name == "id" }
-    all_timestamptz = columns.all? {|col| col.sql_type == "timestamp with time zone" }
+    all_timestamptz =
+      columns.all? {|col| col.sql_type == "timestamp with time zone" }
 
     assert all_timestamptz
   end
