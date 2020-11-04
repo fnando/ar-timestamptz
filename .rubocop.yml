@@ -4,7 +4,7 @@ inherit_gem:
 
 AllCops:
   TargetRubyVersion: 2.6
-
+  NewCops: enable
 Naming/FileName:
   Exclude:
     - lib/ar-timestamptz.rb

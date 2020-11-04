@@ -6,7 +6,7 @@ class TimestamptzTest < Minitest::Test
   let(:model) { Class.new(ActiveRecord::Base) { self.table_name = "users" } }
 
   test "create datetime columns as timestamptz" do
-    with_migration do
+    schema do
       drop_table(:users) if data_source_exists?(:users)
       create_table(:users) do |t|
         t.datetime :deleted_at, null: true
